@@ -1,3 +1,8 @@
+//Variables
+var inventory = [];
+var inputField = document.querySelector('input');
+var nameField = document.querySelector(".result");
+
 //Checked of storage mogelijk is in browser
 if(typeof(Storage) !== "undefined") {
     // Code for localStorage/sessionStorage.
@@ -6,14 +11,17 @@ if(typeof(Storage) !== "undefined") {
 }
 
 //Wanneer je op enter drukt saved hij de naam die je hebt gegeven
-(function() {
-  document.querySelector('input').addEventListener('keydown', function(e) {
+function rememberName(){
+    inputField.addEventListener('keydown', function(e) {
     if (e.keyCode === 13) {
       // Store
-      localStorage.setItem("yourName", "Hello " + document.querySelector('input').value);
+      localStorage.setItem("yourName", "Ah, that's right. My name is " + inputField.value + " how could I forget that?");
       // Retrieve
-      document.querySelector(".result").innerHTML = localStorage.getItem("yourName");
-    }
-  });
-})();
+      nameField.innerHTML = localStorage.getItem("yourName");
 
+      inputField.classList.add("invisible");
+    }
+    })
+}
+
+rememberName();
