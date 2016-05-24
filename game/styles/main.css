@@ -117,7 +117,7 @@ h1, h2{
 }
 
 section{
-    width: 600px;
+    width: 100%;
     margin: 20px auto;
 }
 
@@ -133,6 +133,10 @@ a{
 h1{
     margin: 20px 0;
     font-size: 3em;
+}
+
+main{
+    margin: 0 10%;
 }
 
 main img{
