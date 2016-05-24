@@ -121,6 +121,10 @@ section{
     margin: 20px auto;
 }
 
+a{
+    color:  #32B247;
+}
+
 /*#SIZES & #MARGINS*/
 h1{
     margin: 20px 0;
@@ -134,4 +138,3 @@ h2{
 p{
     margin: 10px 0;
 }
-
