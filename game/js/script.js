@@ -20,6 +20,7 @@ function rememberName(){
       nameField.innerHTML = localStorage.getItem("yourName");
 
       inputField.classList.add("invisible");
+      document.querySelector('.input-field').classList.add("invisible");
     }
     })
 }
