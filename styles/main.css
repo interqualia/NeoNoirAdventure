@@ -103,10 +103,6 @@ a{
     display: none;
 }
 
-.dayoftheweek{
-    display: inline;
-}
-
 /*#SIZES & #MARGINS*/
 h1{
     opacity: 0;
@@ -128,6 +124,18 @@ h2{
     -o-transition: opacity 2s ease-in 2s;
     -ms-transition: opacity 2s ease-in 2s;
     transition: opacity 2s ease-in 2s;
+}
+
+.clock{
+    opacity: 0;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    -webkit-transition: opacity 2s ease-in 6s;
+    -moz-transition: opacity 2s ease-in 6s;
+    -o-transition: opacity 2s ease-in 6s;
+    -ms-transition: opacity 2s ease-in 6s;
+    transition: opacity 2s ease-in 6s;
 }
 
 p{
