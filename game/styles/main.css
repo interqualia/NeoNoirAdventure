@@ -103,6 +103,10 @@ a{
     display: none;
 }
 
+.dayoftheweek{
+    display: inline;
+}
+
 /*#SIZES & #MARGINS*/
 h1{
     opacity: 0;
