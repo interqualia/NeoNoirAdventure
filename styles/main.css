@@ -96,7 +96,7 @@ section{
 }
 
 a{
-    color:  #32B247;
+    color: #32B247;
 }
 
 .invisible{
@@ -186,29 +186,17 @@ main img{
 }
 @-moz-keyframes line {
   to {
-<<<<<<< HEAD
     transform: translateY(100%);
-=======
-    background-position: 0 100vh;
->>>>>>> origin/master
   }
 }
 @-webkit-keyframes line {
   to {
-<<<<<<< HEAD
     transform: translateY(100%);
-=======
-    background-position: 0 100vh;
->>>>>>> origin/master
   }
 }
 @keyframes line {
   to {
-<<<<<<< HEAD
     transform: translateY(100%);
-=======
-    background-position: 0 100vh;
->>>>>>> origin/master
   }
 }
 @-moz-keyframes flicker {
