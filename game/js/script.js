@@ -3,10 +3,11 @@ var inventory = [];
 var inputContainer = document.querySelector('.input-field')
 var inputField = inputContainer.querySelector('input')
 var nameField = document.querySelector(".result");
-var allAppear = document.querySelectorAll('.appear, .appear-2, .appear-3')
+var allAppear = document.querySelectorAll('.appear, .appear-2, .appear-3, .clock')
 var dayofWeek = document.querySelector(".dayoftheweek");
 var timeofday = document.querySelector(".timeoftheday");
 var messageofday = document.querySelector(".messageofday");
+var timeClock = document.querySelector('.clock');
 
 //Dit zorgt ervoor dat het de huidige dag pakt Bron: http://www.w3schools.com/jsref/jsref_getday.asp
 function introMessage() {
@@ -43,7 +44,22 @@ function introMessage() {
     }
 }
 
-introMessage();
+//voegt een klok toe Bron: http://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    timeClock.innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
 
 //Laat teksten verschijnen
 function makeAppear(){
@@ -52,8 +68,6 @@ function makeAppear(){
         allAppear[i].classList.add("opacityAnimation");
     }
 }
-
-makeAppear();
 
 //Checked of storage mogelijk is in browser
 if(typeof(Storage) !== "undefined") {
@@ -75,3 +89,6 @@ inputField.addEventListener('keydown', function(saveName) {
     }
 })
 
+introMessage();
+startTime();
+makeAppear();
