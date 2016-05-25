@@ -25,7 +25,7 @@ inputField.addEventListener('keydown', function(saveName) {
     }
 })
 
-//M
+//Laat teksten verschijnen
 function makeAppear(){
     var arrayLength = allAppear.length;
     for (var i = 0; i < arrayLength; i++) {
