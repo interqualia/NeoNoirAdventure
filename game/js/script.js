@@ -27,23 +27,33 @@ function introMessage() {
     if ( d.getHours() < 12 )
     {
         timeofday.innerHTML = ("morning");
-        messageofday.innerHTML = ("the rays of the sun hit your face. It's a new day, a new crime to solve.");
+        messageofday.innerHTML = ("the rays of the sun hit your face. It's a new day, a new crime to solve. But first, what was my name again?");
     }
     else  /* Hour is from noon to 5pm (actually to 5:59 pm) */
     if ( d.getHours() >= 12 && d.getHours() <= 17 )
     {
         timeofday.innerHTML = ("afternoon");
-        messageofday.innerHTML = ("the sky is colored red with hues of blue. It's a beautiful afternoon, but crime doesn't stop. It never does.");
+        messageofday.innerHTML = ("the sky is colored red with hues of blue. It's a beautiful afternoon, but crime doesn't stop. It never does. But first, what was my name again?");
     }
     else  /* the hour is after 5pm, so it is between 6pm and midnight */
     if ( d.getHours() > 17 && d.getHours() <= 24 )
     {
         timeofday.innerHTML = ("evening");
-        messageofday.innerHTML = ("the reflection of the moon hits your face. It's night, but that doesn't stop a detective like you.");
+        messageofday.innerHTML = ("the reflection of the moon hits your face. It's night, but that doesn't stop a detective like you. But first, what was my name again?");
     }
 }
 
 introMessage();
+
+//Laat teksten verschijnen
+function makeAppear(){
+    var arrayLength = allAppear.length;
+    for (var i = 0; i < arrayLength; i++) {
+        allAppear[i].classList.add("opacityAnimation");
+    }
+}
+
+makeAppear();
 
 //Checked of storage mogelijk is in browser
 if(typeof(Storage) !== "undefined") {
@@ -65,12 +75,3 @@ inputField.addEventListener('keydown', function(saveName) {
     }
 })
 
-//Laat teksten verschijnen
-function makeAppear(){
-    var arrayLength = allAppear.length;
-    for (var i = 0; i < arrayLength; i++) {
-        allAppear[i].classList.add("opacityAnimation");
-    }
-}
-
-makeAppear();
