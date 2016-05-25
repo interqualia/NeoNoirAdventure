@@ -165,7 +165,7 @@ main img{
 
 @media screen and (max-width: 800px) and (min-width: 320px) {
     main{
-        margin: 0 10%;
+        margin: 15% 10% 0 10%;
     }
     section{
         width: 100%;
@@ -177,6 +177,10 @@ main img{
 
     h2{
         font-size: 1em!important;
+    }
+    .clock{
+        left: 20px;
+        top: 20px;
     }
 }
 
