@@ -40,7 +40,7 @@ function introMessage() {
     if ( d.getHours() > 17 && d.getHours() <= 24 )
     {
         timeofday.innerHTML = ("evening");
-        messageofday.innerHTML = ("the reflection of the moon hits your face. It's night, but that doesn't stop a detective like you. But first, what was my name again?");
+        messageofday.innerHTML = ("the reflection of the moon hits your face. It's night, crime doesn't sleep and so won't you. But first, what was my name again?");
     }
 }
 
