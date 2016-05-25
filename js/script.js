@@ -4,6 +4,46 @@ var inputContainer = document.querySelector('.input-field')
 var inputField = inputContainer.querySelector('input')
 var nameField = document.querySelector(".result");
 var allAppear = document.querySelectorAll('.appear, .appear-2, .appear-3')
+var dayofWeek = document.querySelector(".dayoftheweek");
+var timeofday = document.querySelector(".timeoftheday");
+var messageofday = document.querySelector(".messageofday");
+
+//Dit zorgt ervoor dat het de huidige dag pakt Bron: http://www.w3schools.com/jsref/jsref_getday.asp
+function introMessage() {
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    var n = weekday[d.getDay()];
+    dayofWeek.innerHTML = n;
+
+    //Dit zorgt ervoor dat het bericht verandert aan de hand van de tijd Bron: http://www.javascriptsource.com/time-date/good-morning-afternoon-and-evening-by-brad-jones-120319202500.html;
+    if ( d.getHours() < 12 )
+    {
+        timeofday.innerHTML = ("morning");
+        messageofday.innerHTML = ("the rays of the sun hit your face. It's a new day, a new crime to solve.");
+    }
+    else  /* Hour is from noon to 5pm (actually to 5:59 pm) */
+    if ( d.getHours() >= 12 && d.getHours() <= 17 )
+    {
+        timeofday.innerHTML = ("afternoon");
+        messageofday.innerHTML = ("the sky is colored red with hues of blue. It's a beautiful afternoon, but crime doesn't stop. It never does.");
+    }
+    else  /* the hour is after 5pm, so it is between 6pm and midnight */
+    if ( d.getHours() > 17 && d.getHours() <= 24 )
+    {
+        timeofday.innerHTML = ("evening");
+        messageofday.innerHTML = ("the reflection of the moon hits your face. It's night, but that doesn't stop a detective like you.");
+    }
+}
+
+introMessage();
 
 //Checked of storage mogelijk is in browser
 if(typeof(Storage) !== "undefined") {
