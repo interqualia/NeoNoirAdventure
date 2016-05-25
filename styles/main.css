@@ -51,18 +51,32 @@ table {
 
 /*Used as inspiration http://allison.house/404*/
 body{
+    overflow: hidden;
     position: relative;
     background-color: #1F1F1F;
-    background-image: url(../img/stripe.png), url(../img/noise.png);
-    background-repeat: repeat-x, repeat;
+    background-image: url(../img/noise.png);
+    background-repeat: repeat;
     background-position: 0 0%;
-    background-attachment: fixed;
     font-size: 21px;
     font-family: 'Orbitron', sans-serif;
     color:  #32B247;
     -webkit-font-smoothing: none;
     text-shadow: -1px 1px 6px #32B247, 1px 2px 6px #006400;
-    animation: blink 0.1s steps(2, start) infinite, line 8s linear infinite, flicker 0.1s steps(2, start) infinite;
+    animation: blink 0.1s steps(2, start) infinite, flicker 0.1s steps(2, start) infinite;
+}
+
+body::after{
+    content:'';
+    position: absolute;
+    background-repeat: repeat-x;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-image: url(../img/stripe.png);
+    animation: line 8s linear infinite;
+    transform: translateY(0%);
+    will-change: transform;
 }
 
 /*#BEHAVIOUR*/
@@ -172,17 +186,17 @@ main img{
 }
 @-moz-keyframes line {
   to {
-    background-position: 0 100%;
+    transform: translateY(100%);
   }
 }
 @-webkit-keyframes line {
   to {
-    background-position: 0 100%;
+    transform: translateY(100%);
   }
 }
 @keyframes line {
   to {
-    background-position: 0 100%;
+    transform: translateY(100%);
   }
 }
 @-moz-keyframes flicker {
