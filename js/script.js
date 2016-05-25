@@ -1,6 +1,7 @@
 //Variables
 var inventory = [];
-var inputField = document.querySelector('input');
+var inputContainer = document.querySelector('.input-field')
+var inputField = inputContainer.querySelector('input')
 var nameField = document.querySelector(".result");
 var allAppear = document.querySelectorAll('.appear, .appear-2, .appear-3')
 
@@ -14,16 +15,17 @@ if(typeof(Storage) !== "undefined") {
 //Wanneer je op enter drukt saved hij de naam die je hebt gegeven
 inputField.addEventListener('keydown', function(saveName) {
     if (saveName.keyCode === 13) {
+      var welcomeText = "Ah, that's right. My name is " + inputField.value + " how could I forget that?";
       // Store
-      localStorage.setItem("yourName", "Ah, that's right. My name is " + inputField.value + " how could I forget that?");
+      localStorage.setItem("yourName", welcomeText);
       // Retrieve
-      nameField.innerHTML = localStorage.getItem("yourName");
+      nameField.innerHTML = welcomeText;
 
-      inputField.classList.add("invisible");
-      document.querySelector('.input-field').classList.add("invisible");
+      inputContainer.classList.add("invisible");
     }
 })
 
+//M
 function makeAppear(){
     var arrayLength = allAppear.length;
     for (var i = 0; i < arrayLength; i++) {
@@ -32,4 +34,3 @@ function makeAppear(){
 }
 
 makeAppear();
-
