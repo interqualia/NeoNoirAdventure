@@ -12,14 +12,7 @@ var timeClock = document.querySelector('.clock');
 //Dit zorgt ervoor dat het de huidige dag pakt Bron: http://www.w3schools.com/jsref/jsref_getday.asp
 function introMessage() {
     var d = new Date();
-    var weekday = new Array(7);
-    weekday[0] = "sunday";
-    weekday[1] = "monday";
-    weekday[2] = "tuesday";
-    weekday[3] = "wednesday";
-    weekday[4] = "thursday";
-    weekday[5] = "friday";
-    weekday[6] = "saturday";
+    var weekday = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
     var n = weekday[d.getDay()];
     dayofWeek.innerHTML = n;
@@ -27,20 +20,20 @@ function introMessage() {
     //Dit zorgt ervoor dat het bericht verandert aan de hand van de tijd Bron: http://www.javascriptsource.com/time-date/good-morning-afternoon-and-evening-by-brad-jones-120319202500.html;
     if ( d.getHours() < 12 )
     {
-        timeofday.innerHTML = ("morning");
-        messageofday.innerHTML = ("the rays of the sun hit your face. It's a new day, a new crime to solve. But first, what was my name again?");
+        timeofday.innerHTML = "morning";
+        messageofday.innerHTML = "the rays of the sun hit my face. It's a new day, a new crime to solve. But first, what was my name again?";
     }
     else  /* Hour is from noon to 5pm (actually to 5:59 pm) */
     if ( d.getHours() >= 12 && d.getHours() <= 17 )
     {
-        timeofday.innerHTML = ("afternoon");
-        messageofday.innerHTML = ("the sky is colored red with hues of blue. It's a beautiful afternoon, but crime doesn't stop. It never does. But first, what was my name again?");
+        timeofday.innerHTML = "afternoon";
+        messageofday.innerHTML = "the sky is colored blue with hues of red. It's beautiful... But crime doesn't stop. It never does so I won't either. But first, what was my name again?";
     }
     else  /* the hour is after 5pm, so it is between 6pm and midnight */
     if ( d.getHours() > 17 && d.getHours() <= 24 )
     {
-        timeofday.innerHTML = ("evening");
-        messageofday.innerHTML = ("the reflection of the moon hits your face. It's night, crime doesn't sleep and so won't you. But first, what was my name again?");
+        timeofday.innerHTML = "evening";
+        messageofday.innerHTML = "the reflection of the moon hits my face. It's night, crime doesn't sleep and so won't I. But first, what was my name again?";
     }
 }
 
