@@ -1,10 +1,8 @@
 //Hulp gekregen met performance/best practices van Rick Lancee github.com/ricklancee
 //Variables
 var inventory = [];
-var story = [];
 var i;
 var storyContainer = document.querySelector('.story');
-
 
 var inputContainer = document.querySelector('.input-field');
 var inputField = inputContainer.querySelector('input');
@@ -20,11 +18,7 @@ var inventoryCard = inventoryOpenClose.querySelector('.inventory-text');
 var items = {
     knife: {
         name: "Knife:",
-        description: "a small knife"
-    },
-    test: {
-        name: "test:",
-        description: "a simple test"
+        description: "A small knife"
     }
 };
 
@@ -33,27 +27,10 @@ function createInventory(){
     for (var i = 0; i < count; i++) {
         inventoryCard.innerHTML += inventory[i].name + " " + inventory[i].description + '<br> <br>';
     }
-};
+}
 
 
-//Dit creëert de scenario's
-var storyScenario = {
-    scenario1: {
-        text: "test"
-    },
-    scenario2: {
-        text: "test 2"
-    }
-};
-
-function createStory(){
-    var count = story.length;
-    for (var i = 0; i < count; i++) {
-        storyContainer.innerHTML += story[i].text + '<br> <br>';
-    }
-};
-
-
+//Dit creëert de scenario's bron:http://fremontcoderdojo.com/2015/01/08/html-text-adventure-game/
 
 
 //voegt een klok toe Bron: http://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock
@@ -79,7 +56,7 @@ function makeAppear(){
     for (var i = 0; i < arrayLength; i++) {
         allAppear[i].classList.add("opacityAnimation");
     }
-};
+}
 
 //Wanneer je op enter drukt saved hij de naam die je hebt gegeven
 inputField.addEventListener('keydown', function(saveName) {
@@ -91,18 +68,15 @@ inputField.addEventListener('keydown', function(saveName) {
       nameField.innerHTML = welcomeText;
 
       inputContainer.classList.add("invisible");
-
-      inventory.push(items.knife); //pickup knife
-      story.push(storyScenario.scenario1); //add scenario
     }
-});
+})
 
 //Wanneer je i ingedrukt houdt opent de inventory
 window.addEventListener('keydown', function(openInventory) {
     if (openInventory.keyCode ===  73) {
      inventoryOpenClose.classList.toggle('show');
     }
-});
+})
 
 //Dit zorgt ervoor dat het de huidige dag & tijd pakt Bron: http://www.w3schools.com/jsref/jsref_getday.asp
 function introMessage() {
@@ -133,8 +107,10 @@ function introMessage() {
 }
 
 function initialize() {
+    //INVENTORY TEST
+    inventory.push(items.knife); //pickup knife
+
     createInventory();
-    createStory();
     introMessage();
     startTime();
     makeAppear();
