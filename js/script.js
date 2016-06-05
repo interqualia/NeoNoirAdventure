@@ -1,30 +1,35 @@
 //Hulp gekregen met performance/best practices van Rick Lancee github.com/ricklancee
+
 //Variables
 var inventory = [];
 var story = [];
 var i;
-var storyContainer = document.querySelector('.story');
 
+var storyContainer = document.querySelector('.story');
+var buttonBox = document.querySelector('.buttonBox');
 
 var inputContainer = document.querySelector('.input-field');
 var inputField = inputContainer.querySelector('input');
+
 var nameField = document.querySelector(".result");
 var allAppear = document.querySelectorAll('.appear, .appear-2, .appear-3, .clock');
+
 var dayofWeek = document.querySelector('.dayoftheweek');
 var timeofday = document.querySelector('.timeoftheday');
 var messageofday = document.querySelector('.messageofday');
 var timeClock = document.querySelector('.clock');
+
 var inventoryOpenClose = document.querySelector('.inventory');
 var inventoryCard = inventoryOpenClose.querySelector('.inventory-text');
 
 var items = {
-    knife: {
-        name: "Knife:",
-        description: "a small knife"
+    keys: {
+        name: "Car keys:",
+        description: "Your car keys, they have the logo of your car imprinted on them."
     },
-    test: {
-        name: "test:",
-        description: "a simple test"
+    infoAboutJohnny: {
+        name: "Johnny Zerkon:",
+        description: "a junior detective at your department, you're not sure if he's fit for the job. But he sure has vigor."
     }
 };
 
@@ -34,27 +39,6 @@ function createInventory(){
         inventoryCard.innerHTML += inventory[i].name + " " + inventory[i].description + '<br> <br>';
     }
 };
-
-
-//Dit creëert de scenario's
-var storyScenario = {
-    scenario1: {
-        text: "test"
-    },
-    scenario2: {
-        text: "test 2"
-    }
-};
-
-function createStory(){
-    var count = story.length;
-    for (var i = 0; i < count; i++) {
-        storyContainer.innerHTML += story[i].text + '<br> <br>';
-    }
-};
-
-
-
 
 //voegt een klok toe Bron: http://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock
 function startTime(){
@@ -81,6 +65,22 @@ function makeAppear(){
     }
 };
 
+//Dit creëert de scenario's inspiratie http://fremontcoderdojo.com/2015/01/08/html-text-adventure-game/
+var storyScenario = {
+    one: {
+        text: "Hmm.. it’s " + new Date().getHours()+":"+new Date().getMinutes() + " I should get to working. Where should I go first?<br> <i class=small-text> Press 1 for the station and press 2 for the café</i>"
+        //buttons: [["Go to the station"], ["story.push(storyScenario.two)"],["test"], ["story.push(storyScenario.two)"]]
+    }
+};
+
+function createStory(){
+    var count = story.length;
+    for (var i = 0; i < count; i++) {
+        storyContainer.innerHTML += story[i].text + '<br>';
+        //buttonBox.innerHTML += "<button class= btn-large>" + story[i].buttons[0] + "</button>";
+    }
+};
+
 //Wanneer je op enter drukt saved hij de naam die je hebt gegeven
 inputField.addEventListener('keydown', function(saveName) {
     if (saveName.keyCode === 13) {
@@ -92,15 +92,31 @@ inputField.addEventListener('keydown', function(saveName) {
 
       inputContainer.classList.add("invisible");
 
-      inventory.push(items.knife); //pickup knife
-      story.push(storyScenario.scenario1); //add scenario
+      story.push(storyScenario.one);  //add scenario
+      createStory();
     }
 });
 
-//Wanneer je i ingedrukt houdt opent de inventory
+//Wanneer je op i drukt opent de inventory
 window.addEventListener('keydown', function(openInventory) {
     if (openInventory.keyCode ===  73) {
      inventoryOpenClose.classList.toggle('show');
+    }
+});
+
+//Het verhaal
+window.addEventListener('keydown', function(storyChoice) {
+    if (storyChoice.keyCode === 49) {
+     storyContainer.innerHTML += 'You grab your keys and walk towards your car. Once you reach your car you notice there is still mail you didn’t read.<br><br>';
+     console.log('this works');
+     inventory.push(items.keys);
+     createInventory();
+    }
+    if (storyChoice.keyCode === 50) {
+     storyContainer.innerHTML += 'You go to your favorite coffee shop around the corner and order some good black coffee. In the corner of your eye you can see Johnny (a junior detective at the station) walking towards you. He looks young.. You notice the scars on his left eyebrow and upperlip. His eyes give a certain glow, he looks at you with respect.<br><br>';
+     console.log('this works too');
+     inventory.push(items.infoAboutJohnny);
+     createInventory();
     }
 });
 
@@ -133,8 +149,6 @@ function introMessage() {
 }
 
 function initialize() {
-    createInventory();
-    createStory();
     introMessage();
     startTime();
     makeAppear();
