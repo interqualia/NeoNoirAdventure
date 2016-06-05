@@ -145,6 +145,9 @@ p{
 
 main{
     margin: 0 10%;
+    max-width: 100%;
+    height: 100vh;
+    overflow-y: visible;
 }
 
 main img{
@@ -161,6 +164,14 @@ main img{
 
 .opacityAnimation {
     opacity: 1;
+}
+
+.inventory{
+    display: none;
+}
+
+.inventory.show{
+    display: block;
 }
 
 @media screen and (max-width: 800px) and (min-width: 320px) {
