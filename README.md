@@ -12,5 +12,6 @@ something to a genre that I love and I want to continue working on this.
 Task List
 * Write story
 * Make choices reflect on story
+* Make sure the input updates to stories progression
 * Create a new interface
 * Fix my old sloppy code
