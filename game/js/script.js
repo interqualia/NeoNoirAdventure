@@ -83,7 +83,7 @@ let createStory = () =>{
 
 //Wanneer je op enter drukt saved hij de naam die je hebt gegeven
 inputField.addEventListener('keydown', function(saveName) {
-    if (saveName.keyCode === 13) {
+    if (saveName.keyCode === 192) {
       var welcomeText = "Ah, that's right. My name is " + inputField.value + " how could I forget that?";
       // Store
       localStorage.setItem("yourName", welcomeText);
