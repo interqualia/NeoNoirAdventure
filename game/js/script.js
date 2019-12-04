@@ -83,7 +83,7 @@ let createStory = () =>{
 
 //Wanneer je op enter drukt saved hij de naam die je hebt gegeven
 inputField.addEventListener('keydown', function(saveName) {
-    if (saveName.keyCode === 192) {
+    if (saveName.keyCode === 13) {
       var welcomeText = "Ah, that's right. My name is " + inputField.value + " how could I forget that?";
       // Store
       localStorage.setItem("yourName", welcomeText);
@@ -99,7 +99,7 @@ inputField.addEventListener('keydown', function(saveName) {
 
 //Wanneer je op i drukt opent de inventory
 window.addEventListener('keydown', function(openInventory) {
-    if (openInventory.keyCode ===  73) {
+    if (openInventory.keyCode ===  9) {
      inventoryOpenClose.classList.toggle('show');
     }
 });
