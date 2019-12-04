@@ -1,28 +1,28 @@
 //Hulp gekregen met performance/best practices van Rick Lancee github.com/ricklancee
 
 //Variables
-var inventory = [];
-var story = [];
-var i;
+let inventory = [];
+let story = [];
+let i;
 
-var storyContainer = document.querySelector('.story');
-var buttonBox = document.querySelector('.buttonBox');
+let storyContainer = document.querySelector('.story');
+let buttonBox = document.querySelector('.buttonBox');
 
-var inputContainer = document.querySelector('.input-field');
-var inputField = inputContainer.querySelector('input');
+let inputContainer = document.querySelector('.input-field');
+let inputField = inputContainer.querySelector('input');
 
-var nameField = document.querySelector(".result");
-var allAppear = document.querySelectorAll('.appear, .appear-2, .appear-3, .clock');
+let nameField = document.querySelector(".result");
+const allAppear = document.querySelectorAll('.appear, .appear-2, .appear-3, .clock');
 
-var dayofWeek = document.querySelector('.dayoftheweek');
-var timeofday = document.querySelector('.timeoftheday');
-var messageofday = document.querySelector('.messageofday');
-var timeClock = document.querySelector('.clock');
+const dayofWeek = document.querySelector('.dayoftheweek');
+let timeofday = document.querySelector('.timeoftheday');
+let messageofday = document.querySelector('.messageofday');
+let timeClock = document.querySelector('.clock');
 
-var inventoryOpenClose = document.querySelector('.inventory');
-var inventoryCard = inventoryOpenClose.querySelector('.inventory-text');
+const inventoryOpenClose = document.querySelector('.inventory');
+const inventoryCard = inventoryOpenClose.querySelector('.inventory-text');
 
-var items = {
+let items = {
     keys: {
         name: "Car keys:",
         description: "Your car keys, they have the logo of your car imprinted on them."
@@ -122,10 +122,10 @@ window.addEventListener('keydown', function(storyChoice) {
 
 //Dit zorgt ervoor dat het de huidige dag & tijd pakt Bron: http://www.w3schools.com/jsref/jsref_getday.asp
 let introMessage = () =>{
-    var d = new Date();
-    var weekday = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const d = new Date();
+    const weekday = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
-    var n = weekday[d.getDay()];
+    let n = weekday[d.getDay()];
     dayofWeek.innerHTML = n;
 
     //Dit zorgt ervoor dat het bericht verandert aan de hand van de tijd Bron: http://www.javascriptsource.com/time-date/good-morning-afternoon-and-evening-by-brad-jones-120319202500.html;
