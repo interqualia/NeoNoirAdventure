@@ -33,7 +33,7 @@ var items = {
     }
 };
 
-function createInventory(){
+let createInventory = () =>{
     var count = inventory.length;
     for (var i = 0; i < count; i++) {
         inventoryCard.innerHTML += inventory[i].name + " " + inventory[i].description + '<br> <br>';
@@ -41,7 +41,7 @@ function createInventory(){
 };
 
 //voegt een klok toe Bron: http://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock
-function startTime(){
+const startTime = () =>{
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
@@ -52,13 +52,13 @@ function startTime(){
     h + ":" + m + ":" + s;
     var t = setTimeout(startTime, 500);
 };
-function checkTime(i){
+const checkTime = (i) =>{
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 };
 
 //Laat teksten verschijnen
-function makeAppear(){
+const makeAppear = () => {
     var arrayLength = allAppear.length;
     for (var i = 0; i < arrayLength; i++) {
         allAppear[i].classList.add("opacityAnimation");
@@ -66,14 +66,14 @@ function makeAppear(){
 };
 
 //Dit creëert de scenario's inspiratie http://fremontcoderdojo.com/2015/01/08/html-text-adventure-game/
-var storyScenario = {
+let storyScenario = {
     one: {
         text: "Hmm.. it’s " + new Date().getHours()+":"+new Date().getMinutes() + " I should get to working. Where should I go first?<br> <i class=small-text> Press 1 for the station and press 2 for the café</i>"
         //buttons: [["Go to the station"], ["story.push(storyScenario.two)"],["test"], ["story.push(storyScenario.two)"]]
     }
 };
 
-function createStory(){
+let createStory = () =>{
     var count = story.length;
     for (var i = 0; i < count; i++) {
         storyContainer.innerHTML += story[i].text + '<br>';
@@ -121,7 +121,7 @@ window.addEventListener('keydown', function(storyChoice) {
 });
 
 //Dit zorgt ervoor dat het de huidige dag & tijd pakt Bron: http://www.w3schools.com/jsref/jsref_getday.asp
-function introMessage() {
+let introMessage = () =>{
     var d = new Date();
     var weekday = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
@@ -148,7 +148,7 @@ function introMessage() {
     }
 }
 
-function initialize() {
+const initialize = () =>{
     introMessage();
     startTime();
     makeAppear();
