@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>NEO-NOIR</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+    </head>
+    <body>
+        <main>
+            <!--<img src="img/detective.png" alt="Logo">-->
+            <h1 class="appear">NEO-NOIR</h1>
+            <h2 class="appear-2">a text adventure</h2>
+
+            <section class="appear-3">
+                <h2 class="appear">Introduction:</h2>
+                <p class="flow-text">
+                    It's a <span class="dayoftheweek"></span> <span class="timeoftheday"></span>, <span class="messageofday"></span>
+                </p>
+
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="icon_prefix" type="text" class="validate" required>
+                  <label for="icon_prefix">Your name</label>
+                </div>
+
+                <p class="result flow-text"></p>
+
+                <p class="story flow-text"></p>
+                <div class="buttonBox"> </div>
+            </section>
+
+            <!--CARD FOR INVENTORY -->
+            <div class="inventory card green darken-4">
+                <div class="card-content green-text">
+                  <span class="card-title">Inventory</span>
+                  <p class="inventory-text"></p>
+                </div>
+            </div>
+
+            <div class="clock"></div>
+        </main>
+
+        <!-- Compiled and minified JavaScript -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
