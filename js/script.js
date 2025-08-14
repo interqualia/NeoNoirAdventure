@@ -1,28 +1,28 @@
 //Hulp gekregen met performance/best practices van Rick Lancee github.com/ricklancee
 
 //Variables
-let inventory = [];
-let story = [];
-let i;
+var inventory = [];
+var story = [];
+var i;
 
-let storyContainer = document.querySelector('.story');
-let buttonBox = document.querySelector('.buttonBox');
+var storyContainer = document.querySelector('.story');
+var buttonBox = document.querySelector('.buttonBox');
 
-let inputContainer = document.querySelector('.input-field');
-let inputField = inputContainer.querySelector('input');
+var inputContainer = document.querySelector('.input-field');
+var inputField = inputContainer.querySelector('input');
 
-let nameField = document.querySelector(".result");
-const allAppear = document.querySelectorAll('.appear, .appear-2, .appear-3, .clock');
+var nameField = document.querySelector(".result");
+var allAppear = document.querySelectorAll('.appear, .appear-2, .appear-3, .clock');
 
-const dayofWeek = document.querySelector('.dayoftheweek');
-let timeofday = document.querySelector('.timeoftheday');
-let messageofday = document.querySelector('.messageofday');
-let timeClock = document.querySelector('.clock');
+var dayofWeek = document.querySelector('.dayoftheweek');
+var timeofday = document.querySelector('.timeoftheday');
+var messageofday = document.querySelector('.messageofday');
+var timeClock = document.querySelector('.clock');
 
-const inventoryOpenClose = document.querySelector('.inventory');
-const inventoryCard = inventoryOpenClose.querySelector('.inventory-text');
+var inventoryOpenClose = document.querySelector('.inventory');
+var inventoryCard = inventoryOpenClose.querySelector('.inventory-text');
 
-let items = {
+var items = {
     keys: {
         name: "Car keys:",
         description: "Your car keys, they have the logo of your car imprinted on them."
@@ -33,7 +33,7 @@ let items = {
     }
 };
 
-let createInventory = () =>{
+function createInventory(){
     var count = inventory.length;
     for (var i = 0; i < count; i++) {
         inventoryCard.innerHTML += inventory[i].name + " " + inventory[i].description + '<br> <br>';
@@ -41,7 +41,7 @@ let createInventory = () =>{
 };
 
 //voegt een klok toe Bron: http://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock
-const startTime = () =>{
+function startTime(){
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
@@ -52,13 +52,13 @@ const startTime = () =>{
     h + ":" + m + ":" + s;
     var t = setTimeout(startTime, 500);
 };
-const checkTime = (i) =>{
+function checkTime(i){
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 };
 
 //Laat teksten verschijnen
-const makeAppear = () => {
+function makeAppear(){
     var arrayLength = allAppear.length;
     for (var i = 0; i < arrayLength; i++) {
         allAppear[i].classList.add("opacityAnimation");
@@ -66,14 +66,14 @@ const makeAppear = () => {
 };
 
 //Dit creëert de scenario's inspiratie http://fremontcoderdojo.com/2015/01/08/html-text-adventure-game/
-let storyScenario = {
+var storyScenario = {
     one: {
         text: "Hmm.. it’s " + new Date().getHours()+":"+new Date().getMinutes() + " I should get to working. Where should I go first?<br> <i class=small-text> Press 1 for the station and press 2 for the café</i>"
         //buttons: [["Go to the station"], ["story.push(storyScenario.two)"],["test"], ["story.push(storyScenario.two)"]]
     }
 };
 
-let createStory = () =>{
+function createStory(){
     var count = story.length;
     for (var i = 0; i < count; i++) {
         storyContainer.innerHTML += story[i].text + '<br>';
@@ -99,7 +99,7 @@ inputField.addEventListener('keydown', function(saveName) {
 
 //Wanneer je op i drukt opent de inventory
 window.addEventListener('keydown', function(openInventory) {
-    if (openInventory.keyCode ===  9) {
+    if (openInventory.keyCode ===  73) {
      inventoryOpenClose.classList.toggle('show');
     }
 });
@@ -121,11 +121,11 @@ window.addEventListener('keydown', function(storyChoice) {
 });
 
 //Dit zorgt ervoor dat het de huidige dag & tijd pakt Bron: http://www.w3schools.com/jsref/jsref_getday.asp
-let introMessage = () =>{
-    const d = new Date();
-    const weekday = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+function introMessage() {
+    var d = new Date();
+    var weekday = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
-    let n = weekday[d.getDay()];
+    var n = weekday[d.getDay()];
     dayofWeek.innerHTML = n;
 
     //Dit zorgt ervoor dat het bericht verandert aan de hand van de tijd Bron: http://www.javascriptsource.com/time-date/good-morning-afternoon-and-evening-by-brad-jones-120319202500.html;
@@ -148,7 +148,7 @@ let introMessage = () =>{
     }
 }
 
-const initialize = () =>{
+function initialize() {
     introMessage();
     startTime();
     makeAppear();
